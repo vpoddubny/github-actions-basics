@@ -1,0 +1,13 @@
+name: hello-world-printer
+on: push #on which action to run
+jobs: #by default jobs run independently in parallel
+  hello-world-job: #but job can be configured to wait for other jobs
+    runs-on: ubuntu-latest  #defines the environment to run the job on
+                            #can be github-hosted or self-hosted
+    steps: #each step for the job, with some keywords
+      - name: check out repository code
+        uses: actions/checkout@v4 #action which is used to run this step
+                                  #can be pre-defined (from github marketplace),
+                                  #custom from from the same repo or from another
+      - run: echo "$(cat hello_world.txt)"
+        
